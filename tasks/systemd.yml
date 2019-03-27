@@ -22,8 +22,7 @@
     owner: root
     group: root
   when:
-    - systemd_getty_noclear is defined
-    # - systemd_getty_noclear == "True"
+    - tty_noclear is defined
     - tty_noclear | lower() in [ "true", "yes" ]
   notify: systemd reload
   tags:
