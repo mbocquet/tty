@@ -1,0 +1,15 @@
+---
+- name: "getty noclear (override file)"
+  template:
+    src: 'tty.upstart.override.j2'
+    dest: '/etc/init/tty.override'
+    mode: 0644
+    owner: root
+    group: root
+  when:
+    - tty_noclear is defined
+    # - tty_noclear == "True"
+    - tty_noclear | lower() in [ "true", "yes" ]
+  tags:
+    - tty
+...

@@ -1,0 +1,4 @@
+---
+# defaults file for tty
+# tty_noclear: 'False'
+...

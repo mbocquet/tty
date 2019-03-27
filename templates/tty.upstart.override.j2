@@ -1,0 +1,8 @@
+# {{ ansible_managed }}. role : tty, file : tty.upstart.override.j2
+
+stop on runlevel [S016]
+
+respawn
+instance $TTY
+exec /sbin/mingetty $TTY --noclear
+usage 'tty TTY=/dev/ttyX  - where X is console id'
