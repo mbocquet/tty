@@ -16,7 +16,7 @@ None.
 
 ## Install this role as submodule in a git repository
 
-`git submodule add https://github.com/mbocquet/tty.git roles/tty`
+`git submodule add https://git.sekoya.org/mb/tty.git roles/tty`
 
 ## Example Playbook
 
