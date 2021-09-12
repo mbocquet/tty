@@ -2,5 +2,4 @@
 # handlers file for tty
 - name: systemd reload
   systemd:
-    daemon_reload: yes
-...
+    daemon_reload: true
