@@ -1,3 +1,4 @@
 ---
 # tasks file for tty
-- include_tasks: "{{ ansible_service_mgr }}.yml"
+- name: include service tasks
+  include_tasks: "{{ ansible_service_mgr }}.yml"
