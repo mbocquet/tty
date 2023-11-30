@@ -1,6 +1,6 @@
 'tty'. Ansible role to configure console behaviour (tty).
 
-Copyright © 2019-2020 Mathias Bocquet (mbocquet@sekoya.org)
+Copyright © 2019-2023 Mathias Bocquet (mbocquet@sekoya.org)
 
 This file is part of 'tty' Ansible role.
 
