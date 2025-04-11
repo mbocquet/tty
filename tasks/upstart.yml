@@ -1,6 +1,6 @@
 ---
 - name: "getty noclear (override file)"
-  template:
+  ansible.builtin.template:
     src: 'tty.upstart.override.j2'
     dest: '/etc/init/tty.override'
     mode: 0644
