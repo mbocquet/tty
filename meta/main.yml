@@ -16,9 +16,7 @@ galaxy_info:
         - "7"
     - name: Debian
       versions:
-        - jessie
-        - stretch
-        - buster
+        - all
 
   galaxy_tags:
     - console
