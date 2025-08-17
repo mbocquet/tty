@@ -1,5 +1,5 @@
 ---
-- name: override dir
+- name: Override dir
   ansible.builtin.file:
     path: '/etc/systemd/system/getty@.service.d'
     state: 'directory'
@@ -14,7 +14,7 @@
     - tty
     - dir
 
-- name: delete old override file
+- name: Delete old override file
   ansible.builtin.file:
     path: '/etc/systemd/system/getty@.service.d/noclear.conf'
     state: absent
@@ -26,7 +26,7 @@
     - tty
     - file
 
-- name: override file
+- name: Override file
   ansible.builtin.template:
     src: 'getty.override.conf.j2'
     dest: '/etc/systemd/system/getty@.service.d/override.conf'
@@ -40,4 +40,3 @@
   tags:
     - tty
     - file
-...

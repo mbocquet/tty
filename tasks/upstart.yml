@@ -1,15 +1,13 @@
 ---
-- name: "getty noclear (override file)"
+- name: Override file
   ansible.builtin.template:
-    src: 'tty.upstart.override.j2'
-    dest: '/etc/init/tty.override'
+    src: tty.upstart.override.j2
+    dest: /etc/init/tty.override
     mode: 0644
     owner: root
     group: root
   when:
     - tty_noclear is defined
-    # - tty_noclear == "True"
     - tty_noclear | lower() in [ "true", "yes" ]
   tags:
     - tty
-...
