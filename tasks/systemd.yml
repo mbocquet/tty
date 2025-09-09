@@ -1,42 +1,32 @@
 ---
-- name: Override dir
-  ansible.builtin.file:
-    path: '/etc/systemd/system/getty@.service.d'
-    state: 'directory'
-    owner: root
-    group: root
-    mode: 0755
+- name: Systemd
   when:
     - tty_noclear is defined
     - tty_noclear
-  notify: Systemd reload
   tags:
     - tty
     - dir
+  block:
+    - name: Override dir
+      ansible.builtin.file:
+        path: /etc/systemd/system/getty@.service.d
+        state: directory
+        owner: root
+        group: root
+        mode: 0755
+      notify: Systemd reload
 
-- name: Delete old override file
-  ansible.builtin.file:
-    path: '/etc/systemd/system/getty@.service.d/noclear.conf'
-    state: absent
-  when:
-    - tty_noclear is defined
-    - tty_noclear
-  notify: Systemd reload
-  tags:
-    - tty
-    - file
+    - name: Delete old override file
+      ansible.builtin.file:
+        path: /etc/systemd/system/getty@.service.d/noclear.conf
+        state: absent
+      notify: Systemd reload
 
-- name: Override file
-  ansible.builtin.template:
-    src: 'getty.override.conf.j2'
-    dest: '/etc/systemd/system/getty@.service.d/override.conf'
-    mode: 0644
-    owner: root
-    group: root
-  when:
-    - tty_noclear is defined
-    - tty_noclear
-  notify: Systemd reload
-  tags:
-    - tty
-    - file
+    - name: Override file
+      ansible.builtin.template:
+        src: getty.override.conf.j2
+        dest: /etc/systemd/system/getty@.service.d/override.conf
+        mode: 0644
+        owner: root
+        group: root
+      notify: Systemd reload
