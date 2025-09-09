@@ -8,8 +8,8 @@
     mode: 0755
   when:
     - tty_noclear is defined
-    - tty_noclear | lower() in [ "true", "yes" ]
-  notify: systemd reload
+    - tty_noclear
+  notify: Systemd reload
   tags:
     - tty
     - dir
@@ -20,8 +20,8 @@
     state: absent
   when:
     - tty_noclear is defined
-    - tty_noclear | lower() in [ "true", "yes" ]
-  notify: systemd reload
+    - tty_noclear
+  notify: Systemd reload
   tags:
     - tty
     - file
@@ -35,8 +35,8 @@
     group: root
   when:
     - tty_noclear is defined
-    - tty_noclear | lower() in [ "true", "yes" ]
-  notify: systemd reload
+    - tty_noclear
+  notify: Systemd reload
   tags:
     - tty
     - file

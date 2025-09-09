@@ -1,5 +1,5 @@
 ---
 # handlers file for tty
-- name: systemd reload
+- name: Systemd reload
   ansible.builtin.systemd:
     daemon_reload: true
