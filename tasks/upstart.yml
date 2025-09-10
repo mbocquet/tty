@@ -8,6 +8,6 @@
     group: root
   when:
     - tty_noclear is defined
-    - tty_noclear | lower() in [ "true", "yes" ]
+    - tty_noclear is true
   tags:
     - tty

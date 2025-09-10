@@ -2,7 +2,7 @@
 - name: Systemd
   when:
     - tty_noclear is defined
-    - tty_noclear
+    - tty_noclear is true
   tags:
     - tty
     - dir
